@@ -1,4 +1,4 @@
-package android.arch.support.v4;
+package android.arch.support.app;
 /*
  * Copyright (C) 2017 meikoz, http://basic2it.cc/
  *
@@ -19,7 +19,7 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.FragmentActivity;
 
-public abstract class AbsLifecycleActy extends FragmentActivity {
+public abstract class AbsLifecycleActy extends FragmentActivity implements Vo {
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -44,5 +44,15 @@ public abstract class AbsLifecycleActy extends FragmentActivity {
     @Override
     protected void onDestroy() {
         super.onDestroy();
+    }
+
+    @Override
+    public void showToast(int stringRes) {
+
+    }
+
+    @Override
+    public void showToast(String message) {
+
     }
 }

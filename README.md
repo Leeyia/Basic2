@@ -1,6 +1,41 @@
 # Basic2
 u can efficient development code use basic2 android architecture components
 
+# Usage
+```
+public class LoginAct extends AbsLifecycleActy implements View.OnClickListener {
+
+    private LoginViewModel viewModel;
+
+    @Override
+    protected void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.aty_login);
+        findViewById(R.id.req).setOnClickListener(this);
+
+        viewModel = ViewModelProviders
+                .of(this, ViewModelUtil.createFor(LoginViewModel.create(ApiFactory.serv())))
+                .get(LoginViewModel.class);
+    }
+
+    @Override
+    public void onClick(View view) {
+        ReqMap requMap = new ReqMap()
+                .put("username", "1771092****")
+                .put("password", "1234@abcd");
+
+        viewModel
+                .login(requMap)
+                .observe(this, new Observer<Resource<Token>>() {
+                    @Override
+                    public void onChanged(@Nullable Resource<Token> tokenResource) {
+                        Log.d("token", "onChange =" + tokenResource.data.toString());
+                    }
+                });
+    }
+}
+```
+
 # License
 ```
 Copyright (C) 2017 meikoz, http://basic2it.cc/

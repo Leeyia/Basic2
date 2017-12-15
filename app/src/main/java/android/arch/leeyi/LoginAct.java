@@ -23,7 +23,7 @@ import android.arch.lifecycle.ViewModelProviders;
 import android.arch.network.ViewModelUtil;
 import android.arch.network.rep.Resource;
 import android.arch.network.req.ReqMap;
-import android.arch.support.v4.AbsLifecycleActy;
+import android.arch.support.app.AbsLifecycleActy;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -60,7 +60,6 @@ public class LoginAct extends AbsLifecycleActy implements View.OnClickListener {
                     }
                 });
     }
-
 
     @Override
     protected void onPause() {
