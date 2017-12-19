@@ -15,6 +15,7 @@ package android.arch.leeyi.api;
  * limitations under the License.
  */
 
+import android.arch.leeyi.db.Ro;
 import android.arch.network.rep.Repo;
 import android.arch.leeyi.db.Token;
 import android.arch.lifecycle.LiveData;

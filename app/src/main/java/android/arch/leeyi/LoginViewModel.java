@@ -18,6 +18,8 @@ package android.arch.leeyi;
 import android.arch.leeyi.api.ApiFactory;
 import android.arch.leeyi.api.ApiServ;
 import android.arch.leeyi.db.Token;
+import android.arch.leeyi.db.dao.AppDatabase;
+import android.arch.leeyi.db.dao.TokenDao;
 import android.arch.lifecycle.LiveData;
 import android.arch.lifecycle.MutableLiveData;
 import android.arch.lifecycle.ViewModel;
@@ -25,6 +27,7 @@ import android.arch.network.rep.NetworkBoundResource;
 import android.arch.network.rep.Repo;
 import android.arch.network.rep.Resource;
 import android.arch.network.req.ReqMap;
+import android.content.Context;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.util.Log;
@@ -32,35 +35,38 @@ import android.util.Log;
 public class LoginViewModel extends ViewModel {
 
     private ApiServ mServ;
+    private Context mContext;
+    private TokenDao dao;
 
-    private LoginViewModel() {
+    private LoginViewModel(Context context) {
         this.mServ = ApiFactory.serv();
+        this.mContext = context;
+        this.dao = AppDatabase.getDatabase(mContext).getTokenDao();
     }
 
-    public static LoginViewModel create() {
-        return new LoginViewModel();
+    public static LoginViewModel create(Context context) {
+        return new LoginViewModel(context);
     }
 
     public LiveData<Resource<Token>> login(final ReqMap loginMap) {
         return new NetworkBoundResource<Token, Token>() {
             @Override
             protected void saveCallResult(@NonNull Token item) {
+                dao.insert(item);
                 Log.d("token", "saveCallResult =" + item.toString());
             }
 
             @Override
             protected boolean shouldFetch(@Nullable Token data) {
-                Log.d("token", "shouldFetch =" + data.toString());
-                return true;
+                Log.d("token", "shouldFetch =" );
+                return data == null;
             }
 
             @NonNull
             @Override
             protected LiveData<Token> loadFromDb() {
-                Log.d("token", "loadFromDb()");
-                MutableLiveData<Token> liveData = new MutableLiveData<>();
-                liveData.setValue(new Token());
-                return liveData;
+                Log.d("token", "loadFromDb =" );
+                return dao.getToken();
             }
 
             @NonNull

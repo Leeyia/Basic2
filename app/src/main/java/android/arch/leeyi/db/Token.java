@@ -15,8 +15,14 @@ package android.arch.leeyi.db;
  * limitations under the License.
  */
 
-public class Token {
-    public int error_code;
+import android.arch.persistence.room.Entity;
+import android.arch.persistence.room.PrimaryKey;
+
+@Entity(tableName = "token")
+public class Token extends Ro{
+
+    @PrimaryKey(autoGenerate = true)
+    public int id;
     public String access_token;
     public String refresh_token;
 

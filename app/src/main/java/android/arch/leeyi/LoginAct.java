@@ -35,7 +35,7 @@ public class LoginAct extends AbsLifecycleActy implements View.OnClickListener {
         setContentView(R.layout.aty_login);
         findViewById(R.id.req).setOnClickListener(this);
 
-        viewModel = getViewModel(LoginViewModel.class, LoginViewModel.create());
+        viewModel = getViewModel(LoginViewModel.class, LoginViewModel.create(this));
     }
 
     @Override
@@ -49,7 +49,7 @@ public class LoginAct extends AbsLifecycleActy implements View.OnClickListener {
                 .observe(this, new Observer<Resource<Token>>() {
                     @Override
                     public void onChanged(@Nullable Resource<Token> tokenResource) {
-                        Log.d("token", "onChange =" + tokenResource.data.toString());
+                        Log.d("token", "onChange =" +tokenResource!=null &&tokenResource.data!=null ? tokenResource.data.toString():"null");
                         showToast("token");
                     }
                 });
