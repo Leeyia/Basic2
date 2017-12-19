@@ -1,5 +1,7 @@
 package android.arch.network.req;
 
+import android.support.annotation.NonNull;
+
 import okhttp3.OkHttpClient;
 
 import static android.arch.network.NonNull.checkNotNull;
@@ -62,13 +64,13 @@ public final class HttpRequest {
             isDeveloped = true;
         }
 
-        public Builder baseUri(String baseUri) {
+        public Builder baseUri(@NonNull String baseUri) {
             checkNotNull(baseUri, "baseUri == null");
             this.baseUri = baseUri;
             return this;
         }
 
-        public Builder client(OkHttpClient httpClient) {
+        public Builder client(@NonNull OkHttpClient httpClient) {
             checkNotNull(baseUri, "OkHttpClient == null");
             this.okHttpClient = httpClient;
             return this;

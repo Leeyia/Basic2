@@ -15,16 +15,11 @@ package android.arch.leeyi;
  * limitations under the License.
  */
 
-import android.arch.leeyi.api.ApiFactory;
 import android.arch.leeyi.db.Token;
 import android.arch.lifecycle.Observer;
-import android.arch.lifecycle.ViewModelProviders;
-
-import android.arch.network.ViewModelUtil;
 import android.arch.network.rep.Resource;
 import android.arch.network.req.ReqMap;
 import android.arch.support.app.AbsLifecycleActy;
-
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.util.Log;
@@ -40,9 +35,7 @@ public class LoginAct extends AbsLifecycleActy implements View.OnClickListener {
         setContentView(R.layout.aty_login);
         findViewById(R.id.req).setOnClickListener(this);
 
-        viewModel = ViewModelProviders
-                .of(this, ViewModelUtil.createFor(LoginViewModel.create(ApiFactory.serv())))
-                .get(LoginViewModel.class);
+        viewModel = getViewModel(LoginViewModel.class, LoginViewModel.create());
     }
 
     @Override
@@ -57,6 +50,7 @@ public class LoginAct extends AbsLifecycleActy implements View.OnClickListener {
                     @Override
                     public void onChanged(@Nullable Resource<Token> tokenResource) {
                         Log.d("token", "onChange =" + tokenResource.data.toString());
+                        showToast("token");
                     }
                 });
     }

@@ -52,8 +52,8 @@ apply plugin: 'com.jfrog.bintray'
 
 def ext = rootProject.ext
 version = ext.version
-def siteUrl = 'https://github.com/meikoz/architecture'    // project homepage
-def gitUrl = 'https://github.com/meikoz/architecture.git' // project git
+def siteUrl = 'https://github.com/meikoz/Basic2'    // project homepage
+def gitUrl = 'https://github.com/meikoz/Basic2.git' // project git
 group = ext.groupId
 
 install {
@@ -114,7 +114,6 @@ artifacts {
     archives sourcesJar
 }
 
-
 Properties properties = new Properties()
 properties.load(project.rootProject.file('local.properties').newDataInputStream())
 bintray {
@@ -122,8 +121,8 @@ bintray {
     key = properties.getProperty("bintray.apikey")
     configurations = ['archives']
     pkg {
-        repo = "Maven"
-        name = "architecture"                // project name in maven
+        repo = "arch"
+        name = "basic2"                // project name in maven
         websiteUrl = siteUrl
         vcsUrl = gitUrl
         licenses = ["Apache-2.0"]

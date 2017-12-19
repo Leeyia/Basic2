@@ -33,7 +33,6 @@ task clean(type: Delete) {
 ext {
     version = "1.0.0"
     groupId = "android.arch.basic2"
-//    groupId = "android.arch.basic2:components:1.0.0"
 
     compileSdk = 26
     buildTools = "26.0.0"

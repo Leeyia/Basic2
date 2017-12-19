@@ -1,6 +1,12 @@
 # Basic2
 u can efficient development code use basic2 android architecture components
 
+# Dependencies
+```
+compile 'android.arch.basic2:basic:1.0.0'
+compile 'android.arch.basic2:componts:1.0.0'
+```
+
 # Usage
 ```
 public class LoginAct extends AbsLifecycleActy implements View.OnClickListener {

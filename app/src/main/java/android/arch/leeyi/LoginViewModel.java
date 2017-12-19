@@ -15,6 +15,7 @@ package android.arch.leeyi;
  * limitations under the License.
  */
 
+import android.arch.leeyi.api.ApiFactory;
 import android.arch.leeyi.api.ApiServ;
 import android.arch.leeyi.db.Token;
 import android.arch.lifecycle.LiveData;
@@ -32,12 +33,12 @@ public class LoginViewModel extends ViewModel {
 
     private ApiServ mServ;
 
-    private LoginViewModel(ApiServ serv) {
-        this.mServ = serv;
+    private LoginViewModel() {
+        this.mServ = ApiFactory.serv();
     }
 
-    public static LoginViewModel create(ApiServ serv) {
-        return new LoginViewModel(serv);
+    public static LoginViewModel create() {
+        return new LoginViewModel();
     }
 
     public LiveData<Resource<Token>> login(final ReqMap loginMap) {

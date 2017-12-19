@@ -15,9 +15,15 @@ package android.arch.support.app;
  * limitations under the License.
  */
 
+import android.arch.lifecycle.ViewModel;
+import android.arch.lifecycle.ViewModelProvider;
+import android.arch.lifecycle.ViewModelProviders;
+import android.arch.network.ViewModelUtil;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.FragmentActivity;
+import android.widget.Toast;
 
 public abstract class AbsLifecycleActy extends FragmentActivity implements Vo {
 
@@ -48,11 +54,19 @@ public abstract class AbsLifecycleActy extends FragmentActivity implements Vo {
 
     @Override
     public void showToast(int stringRes) {
-
+        Toast.makeText(this, stringRes, Toast.LENGTH_SHORT).show();
     }
 
     @Override
     public void showToast(String message) {
+        Toast.makeText(this, message, Toast.LENGTH_SHORT).show();
+    }
 
+    public <T extends ViewModel> T getViewModel(@NonNull Class<T> modelClass) {
+        return ViewModelProviders.of(this).get(modelClass);
+    }
+
+    public <T extends ViewModel> T getViewModel(@NonNull Class<T> modelClass, @NonNull T model) {
+        return ViewModelProviders.of(this, ViewModelUtil.createFor(model)).get(modelClass);
     }
 }
