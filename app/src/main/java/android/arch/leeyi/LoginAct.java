@@ -48,9 +48,10 @@ public class LoginAct extends AbsLifecycleActy implements View.OnClickListener {
                 .login(requMap)
                 .observe(this, new Observer<Resource<Token>>() {
                     @Override
-                    public void onChanged(@Nullable Resource<Token> tokenResource) {
-                        Log.d("token", "onChange =" +tokenResource!=null &&tokenResource.data!=null ? tokenResource.data.toString():"null");
-                        showToast("token");
+                    public void onChanged(@Nullable Resource<Token> o) {
+                        if (o != null && o.data != null) {
+                            Log.d("NetworkBoundResource", "onChanged =" + o.data);
+                        }
                     }
                 });
     }

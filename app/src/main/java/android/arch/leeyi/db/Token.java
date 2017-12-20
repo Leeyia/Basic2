@@ -19,19 +19,21 @@ import android.arch.persistence.room.Entity;
 import android.arch.persistence.room.PrimaryKey;
 
 @Entity(tableName = "token")
-public class Token extends Ro{
+public class Token {
 
     @PrimaryKey(autoGenerate = true)
     public int id;
     public String access_token;
     public String refresh_token;
+    public long time_millis;
 
     @Override
     public String toString() {
-        final StringBuffer sb = new StringBuffer("Token{");
-        sb.append("access_token='").append(access_token).append('\'');
-        sb.append(", refresh_token='").append(refresh_token).append('\'');
-        sb.append('}');
-        return sb.toString();
+        return "Token{" +
+                "id=" + id +
+                ", access_token='" + access_token + '\'' +
+                ", refresh_token='" + refresh_token + '\'' +
+                ", time_millis=" + time_millis +
+                '}';
     }
 }

@@ -27,5 +27,5 @@ import retrofit2.http.POST;
 public interface ApiServ {
 
     @POST("user/login/?from=pda")
-    LiveData<Repo<Token>> login(@Body ReqMap mReqMap);
+    LiveData<Repo<Ro<Token>>> login(@Body ReqMap mReqMap);
 }

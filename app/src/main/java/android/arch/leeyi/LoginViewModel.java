@@ -17,6 +17,7 @@ package android.arch.leeyi;
 
 import android.arch.leeyi.api.ApiFactory;
 import android.arch.leeyi.api.ApiServ;
+import android.arch.leeyi.db.Ro;
 import android.arch.leeyi.db.Token;
 import android.arch.leeyi.db.dao.AppDatabase;
 import android.arch.leeyi.db.dao.TokenDao;
@@ -49,30 +50,33 @@ public class LoginViewModel extends ViewModel {
     }
 
     public LiveData<Resource<Token>> login(final ReqMap loginMap) {
-        return new NetworkBoundResource<Token, Token>() {
+        return new NetworkBoundResource<Token, Ro<Token>>() {
             @Override
-            protected void saveCallResult(@NonNull Token item) {
-                dao.insert(item);
-                Log.d("token", "saveCallResult =" + item.toString());
+            protected void saveCallResult(@NonNull Ro<Token> item) {
+                Token token = item.data;
+                Log.d("NetworkBoundResource", "saveCallResult =" + token.toString());
+                dao.insert(token);
             }
 
             @Override
             protected boolean shouldFetch(@Nullable Token data) {
-                Log.d("token", "shouldFetch =" );
-                return data == null;
+                Log.d("NetworkBoundResource", "shouldFetch ()");
+                long currentTimeMillis = System.currentTimeMillis();
+                return data == null ;
             }
 
             @NonNull
             @Override
             protected LiveData<Token> loadFromDb() {
-                Log.d("token", "loadFromDb =" );
-                return dao.getToken();
+                LiveData<Token> daoToken = dao.getToken();
+                Log.d("NetworkBoundResource", "loadFromDb ()");
+                return daoToken;
             }
 
             @NonNull
             @Override
-            protected LiveData<Repo<Token>> createCall() {
-                Log.d("token", "createCall()");
+            protected LiveData<Repo<Ro<Token>>> createCall() {
+                Log.d("NetworkBoundResource", "createCall ()");
                 return mServ.login(loginMap);
             }
         }.getLiveData();
