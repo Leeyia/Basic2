@@ -1,6 +1,7 @@
 package com.racofix.basic4.example;
 
 import android.os.Handler;
+import android.util.Log;
 
 import com.racofix.persistence.LogicImpl;
 
@@ -17,5 +18,17 @@ public class LoginLogicImpl extends LogicImpl<LoginLogic.LoginVo> implements Log
                     getVo().failure("登录失败");
             }
         }, 1000);
+    }
+
+    @Override
+    public void onLogicCreated() {
+        super.onLogicCreated();
+        Log.d("LoginLogicImpl","LoginLogicImpl onCreate");
+    }
+
+    @Override
+    public void onLogicDestroy() {
+        super.onLogicDestroy();
+        Log.d("LoginLogicImpl","LoginLogicImpl onDestroy");
     }
 }

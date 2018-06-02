@@ -5,9 +5,11 @@ import android.support.annotation.Nullable;
 import android.view.View;
 import android.widget.Toast;
 
+import com.racofix.http.HttpProxy;
 import com.racofix.persistence.BaseActivity;
+import com.racofix.persistence.annotation.Implement;
 
-
+@Implement(LoginLogicImpl.class)
 public class LoginAct extends BaseActivity<LoginLogicImpl> implements LoginLogic.LoginVo {
 
     @Override
