@@ -38,7 +38,7 @@ dependencies {
 apply plugin: 'com.github.dcendents.android-maven'
 apply plugin: 'com.jfrog.bintray'
 
-version = "1.0.1"
+version = "1.0.2"
 def siteUrl = 'https://github.com/meikoz/Basic2'    // project homepage
 def gitUrl = 'https://github.com/meikoz/Basic2.git' // project git
 group = "com.racofix.basic2"

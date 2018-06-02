@@ -3,7 +3,7 @@ package com.racofix.basic4.example;
 import android.os.Handler;
 import android.util.Log;
 
-import com.racofix.persistence.LogicImpl;
+import com.racofix.aacmvp.LogicImpl;
 
 public class LoginLogicImpl extends LogicImpl<LoginLogic.LoginVo> implements LoginLogic {
 

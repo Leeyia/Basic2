@@ -1,4 +1,4 @@
-package com.racofix.persistence;
+package com.racofix.aacmvp;
 
 import android.arch.lifecycle.ViewModel;
 

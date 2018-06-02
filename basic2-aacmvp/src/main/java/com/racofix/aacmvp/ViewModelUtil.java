@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.racofix.persistence;
+package com.racofix.aacmvp;
 
 import android.arch.lifecycle.ViewModel;
 import android.arch.lifecycle.ViewModelProvider;

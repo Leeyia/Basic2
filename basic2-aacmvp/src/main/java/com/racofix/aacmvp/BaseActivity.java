@@ -1,11 +1,11 @@
-package com.racofix.persistence;
+package com.racofix.aacmvp;
 
 import android.arch.lifecycle.ViewModelProviders;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.FragmentActivity;
 
-import com.racofix.persistence.annotation.ImplementHelper;
+import com.racofix.aacmvp.annotation.ImplementHelper;
 
 
 public abstract class BaseActivity<T extends Logic> extends FragmentActivity implements BaseVo {

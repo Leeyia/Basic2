@@ -1,4 +1,4 @@
-package com.racofix.persistence.annotation;
+package com.racofix.aacmvp.annotation;
 
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;

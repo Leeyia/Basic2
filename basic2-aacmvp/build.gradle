@@ -41,7 +41,7 @@ dependencies {
 apply plugin: 'com.github.dcendents.android-maven'
 apply plugin: 'com.jfrog.bintray'
 
-version = "1.0.1"
+version = "1.0.2"
 def siteUrl = 'https://github.com/meikoz/Basic2'    // project homepage
 def gitUrl = 'https://github.com/meikoz/Basic2.git' // project git
 group = "com.racofix.basic2"
@@ -112,7 +112,7 @@ bintray {
     configurations = ['archives']
     pkg {
         repo = "Basic"
-        name = "basic2-persistence"                // project name in maven
+        name = "basic2-aacmvp"                // project name in maven
         websiteUrl = siteUrl
         vcsUrl = gitUrl
         licenses = ["Apache-2.0"]

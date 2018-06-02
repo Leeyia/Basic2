@@ -1,1 +1,1 @@
-include ':app', ':basic2-persistence', ':basic2-http'
+include ':app', ':basic2-aacmvp', ':basic2-http'
