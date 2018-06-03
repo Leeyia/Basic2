@@ -1,5 +1,6 @@
-package com.racofix.basic4.example;
+package com.racofix.basic4.example.api;
 
+import com.racofix.basic4.example.BuildConfig;
 import com.racofix.http.HttpLogInterceptor;
 import com.racofix.http.HttpProxy;
 import com.racofix.http.HttpRequest;
