@@ -9,7 +9,7 @@ allprojects {
 Basic2
 ```
 dependencies {
-    implementation 'com.racofix.basic2:basic2-http:1.0.2'
-    implementation 'com.racofix.basic2:basic2-aacmvp:1.0.2'
+    implementation 'com.racofix.basic2:basic-http:1.0.4'
+    implementation 'com.racofix.basic2:basic-aacmvp:1.0.4'
 }
 ```
