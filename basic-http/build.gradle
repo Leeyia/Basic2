@@ -31,14 +31,15 @@ dependencies {
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'com.android.support.test:runner:1.0.1'
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.1'
+
+    implementation 'com.squareup.retrofit2:retrofit:2.4.0'
+    implementation 'com.squareup.retrofit2:converter-gson:2.4.0'
 }
-
-
 
 apply plugin: 'com.github.dcendents.android-maven'
 apply plugin: 'com.jfrog.bintray'
 
-version = "1.0.2"
+version = rootProject.ext.version
 def siteUrl = 'https://github.com/meikoz/Basic2'    // project homepage
 def gitUrl = 'https://github.com/meikoz/Basic2.git' // project git
 group = "com.racofix.basic2"
@@ -109,7 +110,7 @@ bintray {
     configurations = ['archives']
     pkg {
         repo = "Basic"
-        name = "basic2-http"                // project name in maven
+        name = "basic-http"                // project name in maven
         websiteUrl = siteUrl
         vcsUrl = gitUrl
         licenses = ["Apache-2.0"]

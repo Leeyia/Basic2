@@ -32,16 +32,14 @@ dependencies {
     androidTestImplementation 'com.android.support.test:runner:1.0.1'
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.1'
 
-    api "android.arch.lifecycle:extensions:1.0.0"
-    implementation "android.arch.persistence.room:runtime:1.0.0"
-    annotationProcessor "android.arch.persistence.room:compiler:1.0.0"
+    implementation "android.arch.lifecycle:extensions:1.0.0"
 }
 
 
 apply plugin: 'com.github.dcendents.android-maven'
 apply plugin: 'com.jfrog.bintray'
 
-version = "1.0.2"
+version = rootProject.ext.version
 def siteUrl = 'https://github.com/meikoz/Basic2'    // project homepage
 def gitUrl = 'https://github.com/meikoz/Basic2.git' // project git
 group = "com.racofix.basic2"
@@ -112,7 +110,7 @@ bintray {
     configurations = ['archives']
     pkg {
         repo = "Basic"
-        name = "basic2-aacmvp"                // project name in maven
+        name = "basic-aacmvp"                // project name in maven
         websiteUrl = siteUrl
         vcsUrl = gitUrl
         licenses = ["Apache-2.0"]
