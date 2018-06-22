@@ -1,4 +1,4 @@
-package com.racofix.aacmvp;
+package com.racofix.logic;
 
 public interface BaseVo {
 }

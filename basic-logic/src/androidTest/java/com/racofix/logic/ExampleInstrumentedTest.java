@@ -1,4 +1,4 @@
-package com.racofix.persistence;
+package com.racofix.logic;
 
 import android.content.Context;
 import android.support.test.InstrumentationRegistry;

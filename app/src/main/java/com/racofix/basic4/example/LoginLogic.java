@@ -1,6 +1,6 @@
 package com.racofix.basic4.example;
 
-import com.racofix.aacmvp.BaseVo;
+import com.racofix.logic.BaseVo;
 
 public interface LoginLogic {
 

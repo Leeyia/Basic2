@@ -1,7 +1,7 @@
-package com.racofix.aacmvp.annotation;
+package com.racofix.logic.annotation;
 
 
-import com.racofix.aacmvp.Logic;
+import com.racofix.logic.Logic;
 
 public class ImplementHelper {
 

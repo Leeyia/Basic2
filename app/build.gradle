@@ -28,11 +28,12 @@ dependencies {
 
 
     implementation project(':basic-http')
+    implementation project(':basic-logic')
 
     implementation 'com.squareup.retrofit2:retrofit:2.4.0'
     implementation "android.arch.lifecycle:extensions:1.0.0"
 
 //    implementation 'com.racofix.basic2:basic-http:1.0.4'
-    implementation 'com.racofix.basic2:basic-aacmvp:1.0.4'
+//    implementation 'com.racofix.basic2:basic-logic:1.0.4'
 
 }

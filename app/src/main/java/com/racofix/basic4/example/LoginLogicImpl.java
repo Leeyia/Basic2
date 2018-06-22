@@ -3,7 +3,7 @@ package com.racofix.basic4.example;
 import android.os.Handler;
 import android.util.Log;
 
-import com.racofix.aacmvp.LogicImpl;
+import com.racofix.logic.LogicImpl;
 import com.racofix.basic4.example.api.ApiFactory;
 import com.racofix.basic4.example.api.RealCallback;
 import com.racofix.basic4.example.api.RepoList;

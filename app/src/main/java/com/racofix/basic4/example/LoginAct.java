@@ -1,12 +1,13 @@
 package com.racofix.basic4.example;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.view.View;
 import android.widget.Toast;
 
-import com.racofix.aacmvp.BaseActivity;
-import com.racofix.aacmvp.annotation.Implement;
+import com.racofix.anmvp.BaseActivity;
+import com.racofix.logic.annotation.Implement;
 
 
 @Implement(LoginLogicImpl.class)
@@ -26,11 +27,13 @@ public class LoginAct extends BaseActivity<LoginLogicImpl> implements LoginLogic
 
     @Override
     public void successful(String msg) {
+        startActivity(new Intent(this, MainActivity.class));
         Toast.makeText(this, msg, Toast.LENGTH_SHORT).show();
     }
 
     @Override
     public void failure(String msg) {
+        startActivity(new Intent(this, MainActivity.class));
         Toast.makeText(this, msg, Toast.LENGTH_SHORT).show();
     }
 }
