@@ -7,7 +7,7 @@ import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
 public final class HttpProxy {
-    
+
     private static HttpProxy mHttp;
     private Map<Class, Object> m_service = new HashMap<>();
 
@@ -46,5 +46,19 @@ public final class HttpProxy {
                 }
             }
         return (T) serv;
+    }
+
+    /**
+     * clean map cache all service fix for replace base url
+     */
+    public void destroyServs() {
+        if (m_service != null) m_service.clear();
+    }
+
+    /**
+     * clean map cache a service fix for replace base url
+     */
+    public <T> void destroyServ(Class<T> clzz) {
+        if (m_service != null) m_service.remove(clzz);
     }
 }
